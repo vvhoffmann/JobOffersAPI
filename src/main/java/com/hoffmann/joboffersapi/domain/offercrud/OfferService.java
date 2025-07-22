@@ -1,7 +1,10 @@
 package com.hoffmann.joboffersapi.domain.offercrud;
 
+import lombok.AllArgsConstructor;
+
 import java.util.List;
 
+@AllArgsConstructor
 class OfferService {
 
     OfferFetchable offersFetcher;
