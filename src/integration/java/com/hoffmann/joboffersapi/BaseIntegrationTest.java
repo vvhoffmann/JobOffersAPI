@@ -23,7 +23,7 @@ import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.wireMoc
 @ActiveProfiles("integration")
 public class BaseIntegrationTest {
 
-    public static final String WIRE_MOCK_HOST = "localhost";
+    public static final String WIRE_MOCK_HOST = "http://localhost";
 
     @Autowired
     public MockMvc mockMvc;
