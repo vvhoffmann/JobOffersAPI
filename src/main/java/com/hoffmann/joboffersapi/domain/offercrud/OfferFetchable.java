@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface OfferFetchable {
 
-    List<JobOfferResponseDto> fetchOffers();
+    List<JobOfferResponseDto> fetchAndSaveOffers();
 }

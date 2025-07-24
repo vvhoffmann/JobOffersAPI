@@ -1,21 +1,13 @@
 package com.hoffmann.joboffersapi.domain.offercrud;
 
-import java.util.List;
+import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.stereotype.Repository;
+
 import java.util.Optional;
 
-public interface OfferRepository {
+@Repository
+public interface OfferRepository extends MongoRepository<Offer, String> {
 
-    Offer save(Offer offer);
+    boolean existsByOfferUrl(String url);
 
-    List<Offer> findAll();
-
-    Optional<Offer> findById(String offerId);
-
-    boolean existById(String offerId);
-
-    Optional<Offer> findByUrl(String url);
-
-    boolean existByUrl(String url);
-
-    List<Offer> saveAll(List<Offer> offers);
 }
