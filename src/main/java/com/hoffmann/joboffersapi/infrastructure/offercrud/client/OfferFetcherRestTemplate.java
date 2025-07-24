@@ -25,7 +25,7 @@ class OfferFetcherRestTemplate implements OfferFetchable {
     private final int port;
 
     @Override
-    public List<JobOfferResponseDto> fetchOffers() {
+    public List<JobOfferResponseDto> fetchAndSaveOffers() {
         final ResponseEntity<List<JobOfferResponseDto>> offersResponse = makeGetRequest();
         final List<JobOfferResponseDto> offers = offersResponse.getBody();
         if(offers == null){

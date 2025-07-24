@@ -12,7 +12,7 @@ class InMemoryOfferFetcherTestImpl implements OfferFetchable{
     }
 
     @Override
-    public List<JobOfferResponseDto> fetchOffers() {
+    public List<JobOfferResponseDto> fetchAndSaveOffers() {
         return listOfOffers;
     }
 }
