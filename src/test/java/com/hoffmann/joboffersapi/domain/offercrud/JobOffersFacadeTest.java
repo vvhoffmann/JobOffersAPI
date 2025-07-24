@@ -12,14 +12,14 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-class JobOffersCrudFacadeTest {
+class JobOffersFacadeTest {
 
     @Test
     @Disabled("Should fetch jobs from remote and save all offers when repository is empty")
     public void should_fetch_jobs_from_remote_and_save_all_offers_when_repository_is_empty()
     {
         //given
-        OffersCrudFacade offersFacade = new OffersCrudFacadeTestConfiguration().setUpForTest();
+        OffersFacade offersFacade = new OffersFacadeTestConfiguration().setUpForTest();
         assertThat(offersFacade.findAllOffers()).isEmpty();
 
         //when
@@ -35,7 +35,7 @@ class JobOffersCrudFacadeTest {
     public void should_save_only_2_offers_when_repository_had_4_added_with_offer_urls()
     {
         //given
-        OffersCrudFacade offersFacade = new OffersCrudFacadeTestConfiguration(
+        OffersFacade offersFacade = new OffersFacadeTestConfiguration(
                 List.of(
                         new JobOfferResponseDto("Junior", "Lala", "5000", "1"),
                         new JobOfferResponseDto("Junior", "Qwert", "5000", "2"),
@@ -66,7 +66,7 @@ class JobOffersCrudFacadeTest {
     @DisplayName("Should save 4 offers when there are no offers in database")
     public void should_save_4_offers_when_there_are_no_offers_in_database() {
         //given
-        OffersCrudFacade offersFacade = new OffersCrudFacadeTestConfiguration(List.of()).setUpForTest();
+        OffersFacade offersFacade = new OffersFacadeTestConfiguration(List.of()).setUpForTest();
 
         //when
         offersFacade.saveOffer(new OfferRequestDto("Lala", "Junior", "5000", "1"));
@@ -83,7 +83,7 @@ class JobOffersCrudFacadeTest {
     @DisplayName("Should find offer by id when offer was saved")
     public void should_find_offer_by_id_when_offer_was_saved() {
         //given
-        OffersCrudFacade offersFacade = new OffersCrudFacadeTestConfiguration(List.of()).setUpForTest();
+        OffersFacade offersFacade = new OffersFacadeTestConfiguration(List.of()).setUpForTest();
         final OfferResponseDto offerResponseDto = offersFacade.saveOffer(
                 new OfferRequestDto("Lala", "Junior", "5000", "https://someother.pl/1")
         );
@@ -98,7 +98,7 @@ class JobOffersCrudFacadeTest {
     @DisplayName("Should throw OFFER NOT FOUND EXCEPTION when offer is not found")
     public void should_throw_offer_not_found_exception_when_offer_not_found() {
         //given
-        OffersCrudFacade offersFacade = new OffersCrudFacadeTestConfiguration(List.of()).setUpForTest();
+        OffersFacade offersFacade = new OffersFacadeTestConfiguration(List.of()).setUpForTest();
         assertThat(offersFacade.findAllOffers()).isEmpty();
         //when
         //then
@@ -110,7 +110,7 @@ class JobOffersCrudFacadeTest {
     @DisplayName("Should throw duplicate key exception when offer url exists in database")
     public void should_throw_duplicate_key_exception_when_offer_with_found_offer_url_exists_in_database() {
         //given
-        OffersCrudFacade offersFacade = new OffersCrudFacadeTestConfiguration(List.of()).setUpForTest();
+        OffersFacade offersFacade = new OffersFacadeTestConfiguration(List.of()).setUpForTest();
         offersFacade.saveOffer(new OfferRequestDto("Lala", "Junior", "5000", "1"));
         //when
         //then

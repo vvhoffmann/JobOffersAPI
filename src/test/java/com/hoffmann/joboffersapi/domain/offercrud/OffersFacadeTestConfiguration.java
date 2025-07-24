@@ -1,15 +1,17 @@
 package com.hoffmann.joboffersapi.domain.offercrud;
 
 import com.hoffmann.joboffersapi.domain.offercrud.dto.JobOfferResponseDto;
+import org.springframework.context.annotation.Configuration;
 
 import java.util.List;
 
-class OffersCrudFacadeTestConfiguration {
+@Configuration
+class OffersFacadeTestConfiguration {
 
     private final InMemoryOfferRepository offerRepository = new InMemoryOfferRepository();
     private final InMemoryOfferFetcherTestImpl inMemoryFetcher;
 
-    OffersCrudFacadeTestConfiguration() {
+    OffersFacadeTestConfiguration() {
         this.inMemoryFetcher = new InMemoryOfferFetcherTestImpl(
                 List.of(
                         new JobOfferResponseDto("Junior", "Lala", "5000", "1"),
@@ -22,12 +24,12 @@ class OffersCrudFacadeTestConfiguration {
         );
     }
 
-    OffersCrudFacadeTestConfiguration(List<JobOfferResponseDto> remoteClientOffers) {
+    OffersFacadeTestConfiguration(List<JobOfferResponseDto> remoteClientOffers) {
         this.inMemoryFetcher = new InMemoryOfferFetcherTestImpl(remoteClientOffers);
     }
 
-    OffersCrudFacade setUpForTest()
+    OffersFacade setUpForTest()
     {
-        return new OffersCrudFacade(offerRepository, new OfferService(inMemoryFetcher, offerRepository));
+        return new OffersFacade(offerRepository, new OfferService(inMemoryFetcher, offerRepository));
     }
 }

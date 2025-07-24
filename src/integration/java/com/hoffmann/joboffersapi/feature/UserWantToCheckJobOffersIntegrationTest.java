@@ -23,12 +23,10 @@ class UserWantToCheckJobOffersIntegrationTest extends BaseIntegrationTest implem
                         .willReturn(WireMock.aResponse()
                                 .withStatus(200)
                                         .withHeader("Content-Type", "application/json")
-                                        .withBody(bodyWithZeroOffersJson())));
-        //when
-        final List<JobOfferResponseDto> jobOfferResponseDtos = offerHttpProxy.fetchOffers();
-        //then
+                                        .withBody(bodyWithFourOffersJson())));
 
         //step 2: scheduler ran 1st time and made GET to external server and system added 0 offers to database
+        offerHttpProxy.fetchOffers();
         //step 3: user tried to get JWT token by requesting POST /token with username=someUser, password=somePassword and system returned UNAUTHORIZED(401)
         //step 4: user made GET /offers with no jwt token and system returned UNAUTHORIZED(401)
         //step 5: user made POST /register with username=someUser, password=somePassword and system registered user with status OK(200)
