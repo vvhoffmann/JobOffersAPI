@@ -3,12 +3,11 @@ package com.hoffmann.joboffersapi.domain.offercrud;
 import com.hoffmann.joboffersapi.domain.offercrud.dto.OfferRequestDto;
 import com.hoffmann.joboffersapi.domain.offercrud.dto.OfferResponseDto;
 import lombok.AllArgsConstructor;
-
 import java.util.List;
 import java.util.stream.Collectors;
 
 @AllArgsConstructor
-class OffersCrudFacade {
+public class OffersFacade {
 
     private final OfferRepository offerRepository;
     private final OfferService offerService;
