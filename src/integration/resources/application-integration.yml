@@ -1,2 +1,5 @@
 job-offers:
-  fetch-run-occurence: PT1s
+  fetch-run-occurence: PT1S
+
+scheduling:
+  enabled: false

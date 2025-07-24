@@ -4,11 +4,9 @@ import com.github.tomakehurst.wiremock.client.WireMock;
 import com.hoffmann.joboffersapi.BaseIntegrationTest;
 import com.hoffmann.joboffersapi.SampleJobOfferResponse;
 import com.hoffmann.joboffersapi.domain.offercrud.OfferFetchable;
-import com.hoffmann.joboffersapi.domain.offercrud.dto.JobOfferResponseDto;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.util.List;
 
 class UserWantToCheckJobOffersIntegrationTest extends BaseIntegrationTest implements SampleJobOfferResponse {
 
