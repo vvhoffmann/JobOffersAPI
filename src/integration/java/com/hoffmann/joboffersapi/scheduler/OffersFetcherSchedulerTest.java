@@ -2,7 +2,7 @@ package com.hoffmann.joboffersapi.scheduler;
 
 import com.hoffmann.joboffersapi.BaseIntegrationTest;
 import com.hoffmann.joboffersapi.JobOffersApplication;
-import com.hoffmann.joboffersapi.domain.offercrud.OfferFetchable;
+import com.hoffmann.joboffersapi.domain.offer.OfferFetchable;
 import java.time.Duration;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,7 +1,7 @@
-package com.hoffmann.joboffersapi.infrastructure.offercrud.scheduler;
+package com.hoffmann.joboffersapi.infrastructure.offer.scheduler;
 
-import com.hoffmann.joboffersapi.domain.offercrud.OffersFacade;
-import com.hoffmann.joboffersapi.domain.offercrud.dto.OfferResponseDto;
+import com.hoffmann.joboffersapi.domain.offer.OffersFacade;
+import com.hoffmann.joboffersapi.domain.offer.dto.OfferResponseDto;
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.scheduling.annotation.Scheduled;

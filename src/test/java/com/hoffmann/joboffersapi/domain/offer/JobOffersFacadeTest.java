@@ -1,8 +1,8 @@
-package com.hoffmann.joboffersapi.domain.offercrud;
+package com.hoffmann.joboffersapi.domain.offer;
 
-import com.hoffmann.joboffersapi.domain.offercrud.dto.JobOfferResponseDto;
-import com.hoffmann.joboffersapi.domain.offercrud.dto.OfferRequestDto;
-import com.hoffmann.joboffersapi.domain.offercrud.dto.OfferResponseDto;
+import com.hoffmann.joboffersapi.domain.offer.dto.JobOfferResponseDto;
+import com.hoffmann.joboffersapi.domain.offer.dto.OfferRequestDto;
+import com.hoffmann.joboffersapi.domain.offer.dto.OfferResponseDto;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

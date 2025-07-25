@@ -1,7 +1,7 @@
-package com.hoffmann.joboffersapi.domain.offercrud;
+package com.hoffmann.joboffersapi.domain.offer;
 
-import com.hoffmann.joboffersapi.domain.offercrud.dto.OfferRequestDto;
-import com.hoffmann.joboffersapi.domain.offercrud.dto.OfferResponseDto;
+import com.hoffmann.joboffersapi.domain.offer.dto.OfferRequestDto;
+import com.hoffmann.joboffersapi.domain.offer.dto.OfferResponseDto;
 import lombok.AllArgsConstructor;
 import java.util.List;
 import java.util.stream.Collectors;

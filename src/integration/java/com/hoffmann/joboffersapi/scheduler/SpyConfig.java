@@ -1,6 +1,6 @@
 package com.hoffmann.joboffersapi.scheduler;
 
-import com.hoffmann.joboffersapi.domain.offercrud.OfferFetchable;
+import com.hoffmann.joboffersapi.domain.offer.OfferFetchable;
 import org.mockito.Mockito;
 import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.context.annotation.Bean;
