@@ -96,7 +96,12 @@
             <version>5.2.0</version>
             <scope>test</scope>
         </dependency>
-
+        <!--  SWAGGER http://localhost:8080/swagger-ui/index.html#/ -->
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+            <version>2.5.0</version>
+        </dependency>
         <!--  WIREMOCK -->
         <dependency>
             <groupId>com.github.tomakehurst</groupId>
