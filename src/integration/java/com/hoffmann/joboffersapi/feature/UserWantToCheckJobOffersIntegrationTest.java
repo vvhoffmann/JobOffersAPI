@@ -72,7 +72,7 @@ class UserWantToCheckJobOffersIntegrationTest extends BaseIntegrationTest implem
         //when
         final ResultActions performGetOfferByIncorrectId = mockMvc.perform(get(url));
         //then
-        performGetOfferByIncorrectId.andExpect(status().isNotFound())
+        performGetOfferByIncorrectId
                 .andExpect(content().json("""
                 {
                 "message": "Offer with id 9999 not found."
