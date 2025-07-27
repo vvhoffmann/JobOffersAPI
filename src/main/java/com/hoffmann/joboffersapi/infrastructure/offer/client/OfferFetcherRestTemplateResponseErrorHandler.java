@@ -1,4 +1,4 @@
-package com.hoffmann.joboffersapi.infrastructure.offercrud.client;
+package com.hoffmann.joboffersapi.infrastructure.offer.client;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;

@@ -1,4 +1,4 @@
-package com.hoffmann.joboffersapi.domain.offercrud;
+package com.hoffmann.joboffersapi.domain.offer;
 
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Page;

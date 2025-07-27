@@ -1,4 +1,4 @@
-package com.hoffmann.joboffersapi.infrastructure.offercrud.client;
+package com.hoffmann.joboffersapi.infrastructure.offer.client;
 
 import lombok.Builder;
 import org.springframework.boot.context.properties.ConfigurationProperties;

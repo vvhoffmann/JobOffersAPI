@@ -1,4 +1,4 @@
-package com.hoffmann.joboffersapi.domain.offercrud;
+package com.hoffmann.joboffersapi.domain.offer;
 
 import lombok.Builder;
 import org.springframework.data.annotation.Id;

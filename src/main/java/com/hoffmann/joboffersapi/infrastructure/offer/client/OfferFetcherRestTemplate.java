@@ -1,7 +1,7 @@
-package com.hoffmann.joboffersapi.infrastructure.offercrud.client;
+package com.hoffmann.joboffersapi.infrastructure.offer.client;
 
-import com.hoffmann.joboffersapi.domain.offercrud.OfferFetchable;
-import com.hoffmann.joboffersapi.domain.offercrud.dto.JobOfferResponseDto;
+import com.hoffmann.joboffersapi.domain.offer.OfferFetchable;
+import com.hoffmann.joboffersapi.domain.offer.dto.JobOfferResponseDto;
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.core.ParameterizedTypeReference;

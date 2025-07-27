@@ -1,4 +1,4 @@
-package com.hoffmann.joboffersapi.infrastructure.offercrud.scheduler;
+package com.hoffmann.joboffersapi.infrastructure.offer.scheduler;
 
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Configuration;
