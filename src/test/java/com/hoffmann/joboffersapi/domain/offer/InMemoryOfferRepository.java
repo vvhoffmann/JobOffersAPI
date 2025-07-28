@@ -1,5 +1,6 @@
 package com.hoffmann.joboffersapi.domain.offer;
 
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -21,7 +22,7 @@ class InMemoryOfferRepository implements OfferRepository {
     @Override
     public <S extends Offer> S save(final S entity) {
         if(db.values().stream().anyMatch(o -> o.offerUrl().equals(entity.offerUrl())))
-            throw new OfferDuplicateException(entity.offerUrl());
+            throw new DuplicateKeyException(String.format("Offer with offerUrl %s already exists", entity.offerUrl()));
 
         UUID id = UUID.randomUUID();
         Offer offerToSave = Offer.builder()

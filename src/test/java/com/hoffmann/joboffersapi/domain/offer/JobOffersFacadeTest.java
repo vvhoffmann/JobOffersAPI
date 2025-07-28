@@ -6,6 +6,7 @@ import com.hoffmann.joboffersapi.domain.offer.dto.OfferResponseDto;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.springframework.dao.DuplicateKeyException;
 
 import java.util.List;
 
@@ -115,7 +116,7 @@ class JobOffersFacadeTest {
         //when
         //then
         OfferRequestDto offerRequestDto = new OfferRequestDto("Lala", "Junior", "5000", "1");
-        assertThrows(OfferDuplicateException.class, () -> offersFacade.saveOffer(offerRequestDto), "Offer with offerUrl 1 already exists");
+        assertThrows(DuplicateKeyException.class, () -> offersFacade.saveOffer(offerRequestDto), "Offer with offerUrl 1 already exists");
     }
 
 
