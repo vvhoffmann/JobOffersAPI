@@ -1,8 +1,5 @@
 package com.hoffmann.joboffersapi.domain.offer;
 
-import lombok.Getter;
-
-@Getter
 public class OfferNotFoundException extends RuntimeException {
 
     public OfferNotFoundException(String offerId) {

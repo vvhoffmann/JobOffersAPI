@@ -6,25 +6,27 @@ import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
 @RestController
 @AllArgsConstructor
+@RequestMapping("/offers")
 class OfferRestController {
 
     private final OffersFacade offersFacade;
 
-    @GetMapping("/offers")
+    @GetMapping
     public ResponseEntity<List<OfferResponseDto>> getAllOffers() {
         final List<OfferResponseDto> allOffers = offersFacade.findAllOffers();
         return new ResponseEntity<>(allOffers, HttpStatus.OK);
     }
 
-    @GetMapping("/offers/{offerId}")
-    public ResponseEntity<OfferResponseDto> findOfferById(@RequestParam String offerId) {
+    @GetMapping("/{offerId}")
+    public ResponseEntity<OfferResponseDto> findOfferById(@PathVariable String offerId) {
         final OfferResponseDto offerById = offersFacade.findOfferById(offerId);
         return new ResponseEntity<>(offerById, HttpStatus.OK);
     }
