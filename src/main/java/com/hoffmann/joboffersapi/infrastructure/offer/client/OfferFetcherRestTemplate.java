@@ -8,11 +8,12 @@ import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.client.ResourceAccessException;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.server.ResponseStatusException;
 import org.springframework.web.util.UriComponentsBuilder;
-
-import java.util.Collections;
 import java.util.List;
 
 @AllArgsConstructor
@@ -26,14 +27,20 @@ class OfferFetcherRestTemplate implements OfferFetchable {
 
     @Override
     public List<JobOfferResponseDto> fetchAndSaveOffers() {
-        final ResponseEntity<List<JobOfferResponseDto>> offersResponse = makeGetRequest();
-        final List<JobOfferResponseDto> offers = offersResponse.getBody();
-        if(offers == null){
-            log.info("Response body was null returning empty List");
-            return Collections.emptyList();
+        try {
+            final ResponseEntity<List<JobOfferResponseDto>> offersResponse = makeGetRequest();
+            final List<JobOfferResponseDto> offersBody = offersResponse.getBody();
+            if (offersBody == null) {
+                log.info("Response body was null");
+                throw new ResponseStatusException(HttpStatus.NO_CONTENT);
+            }
+            log.info("Response body returned: " + offersBody);
+            return offersBody;
+        } catch(ResourceAccessException e)
+        {
+            log.error("Error while fetching offers using http client: " + e.getMessage());
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR);
         }
-        log.info("Response body returned: " + offers);
-        return offers;
     }
 
     //http://ec2-3-127-218-34.eu-central-1.compute.amazonaws.com:5057/offers
