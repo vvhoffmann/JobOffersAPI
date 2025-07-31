@@ -26,7 +26,7 @@ class RegisterRestController {
         final RegistrationResultDto resultDto = loginAndRegisterFacade.register(
                 new RegisterUserRequestDto(registerUserRequestDto.username(), encodedPassword)
         );
-        return new ResponseEntity<>(resultDto, HttpStatus.CREATED);
+        return ResponseEntity.status(HttpStatus.CREATED).body(resultDto);
     }
 
 }
