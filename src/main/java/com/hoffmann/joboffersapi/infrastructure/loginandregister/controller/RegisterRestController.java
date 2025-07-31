@@ -5,6 +5,7 @@ import com.hoffmann.joboffersapi.domain.loginandregister.dto.RegisterUserRequest
 import com.hoffmann.joboffersapi.domain.loginandregister.dto.RegistrationResultDto;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -25,7 +26,7 @@ class RegisterRestController {
         final RegistrationResultDto resultDto = loginAndRegisterFacade.register(
                 new RegisterUserRequestDto(registerUserRequestDto.username(), encodedPassword)
         );
-        return ResponseEntity.ok(resultDto);
+        return new ResponseEntity<>(resultDto, HttpStatus.CREATED);
     }
 
 }
