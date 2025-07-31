@@ -1,51 +1,92 @@
-# JobOffersAPI
+# 💼 JobOffersAPI
 
-Aplikacja REST API do zarządzania ofertami pracy dla junior Java developerów.
-
----
-
-## Opis
-
-**JobOffersAPI** to aplikacja służąca do pobierania i zarządzania listą ofert pracy dla junior Java developerów. Dane są przechowywane w bazie MongoDB i regularnie aktualizowane co 3 godziny za pomocą wbudowanego schedulera.
-Aplikacja zawiera testy jednostkowe dla domain oraz testy integracyjne dla połaczenia HTTP oraz happy path użytkownika korzystającego z endpointów.
+Aplikacja REST API do zarządzania ofertami pracy dla junior Java developerów dostępnymi po uprzednim zalogowaniu.
 
 ---
 
-## Architektura
+## 📝 Opis
 
-- **Modularny monolit** – aplikacja podzielona na moduły ułatwiające rozwój i utrzymanie
-- **Heksagonalna (Ports and Adapters)**
+**JobOffersAPI** to aplikacja służąca do pobierania ofert pracy dla junior Java developerów.
+Dane są przechowywane w bazie **MongoDB** i automatycznie aktualizowane co 3 godziny za pomocą wbudowanego **schedulera**.
+Spring Security i generacja tokena JWT umożliwia uwierzytelnienie użytkownika.
+
+Projekt zawiera:
+- Testy jednostkowe dla warstwy domenowej
+- Testy integracyjne sprawdzające komunikację HTTP oraz typowe scenariusze użytkownika (happy path)
 
 ---
 
-## Funkcjonalności
+## 🧱 Architektura
 
-- Pobieranie listy aktualnych ofert pracy ze zdalnego API przez REST Template
-- Dodawanie nowych ofert pracy za pomocą endpointa POST /offers
+- **Modularny monolit** – logiczny podział na moduły ułatwia rozwój i utrzymanie
+- **Heksagonalna architektura (Ports and Adapters)** – wyraźny podział na warstwy domeny, aplikacji i infrastruktury
+
+---
+
+## ✅ Funkcjonalności
+
+- Rejestracja
+- Logowanie (uzyskiwanie tokena JWT)
+
+Dostępne przy autoryzacji użytkownika tokenem JWT:
+
+- Pobieranie listy aktualnych ofert ze zdalnego API (REST Template)
+- Dodawanie ofert pracy przez endpoint `POST /offers`
 - Automatyczna aktualizacja ofert co 3 godziny
 
 ---
 
-## Endpoints API
+## 📡 API Endpointy
 
-| Metoda | Endpoint           | Opis                         |
-|--------|--------------------|------------------------------|
-| GET    | `/offers`          | Pobierz listę wszystkich ofert pracy |
-| POST   | `/offers`          | Dodaj nową ofertę pracy       |
-| GET    | `/offers/{id}`     | Pobierz szczegóły oferty o podanym ID |
+### 🔓 Publiczne:
 
----
+| Metoda | Endpoint    | Opis                              |
+|--------|-------------|-----------------------------------|
+| POST   | `/register` | Rejestracja nowego użytkownika    |
+| POST   | `/token`    | Uzyskanie tokena JWT do logowania |
 
-## Technologie
+#### 📦 Wymagane body (JSON) dla 
+`POST /register` oraz `POST /token`:
 
-- Java
-- Spring Boot
-- MongoDB
-- Spring Scheduler
-- WireMock
-- MockMvc
-- AssertJ
-- 
-- 
+```json
+{
+  "username": "user",
+  "password": "tajnehaslo"
+}
+```
 
----
+### 🔐 Endpointy wymagające JWT (Bearer Token):
+
+| Metoda | Endpoint       | Opis                                  |
+| ------ | -------------- | ------------------------------------- |
+| GET    | `/offers`      | Pobierz listę wszystkich ofert pracy  |
+| POST   | `/offers`      | Dodaj nową ofertę pracy               |
+| GET    | `/offers/{id}` | Pobierz szczegóły oferty o podanym ID |
+
+📦 Przykładowe wymagane body (JSON) dla `POST /offers`
+```json
+{
+  "companyName": "X",
+  "position": "Junior Java Dev",
+  "salary": "8 000 - 10 000 PLN",
+  "offerUrl": "https://offers.pl/offer/5"
+}
+```
+
+### 🛠️ Technologie
+Java 17+
+
+Spring Boot
+
+MongoDB
+
+Spring Security + JWT
+
+Spring Scheduler
+
+WireMock (mockowanie zewnętrznych API)
+
+MockMvc (testy kontrolerów)
+
+AssertJ (asercje w testach)
+
