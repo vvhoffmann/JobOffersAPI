@@ -5,5 +5,5 @@ import lombok.Builder;
 @Builder
 public record RegistrationResultDto(boolean created,
                                     String id,
-                                    String login) {
+                                    String username) {
 }
