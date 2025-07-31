@@ -14,7 +14,11 @@ Projekt zawiera:
 - Testy jednostkowe dla warstwy domenowej
 - Testy integracyjne sprawdzające komunikację HTTP oraz typowe scenariusze użytkownika (happy path)
 
----
+📌 Uwagi
+Token JWT jest wymagany do korzystania z endpointów /offers
+
+Token uzyskasz przez endpoint /token po uprzedniej rejestracji
+
 
 ## 🧱 Architektura
 
