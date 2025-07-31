@@ -1,12 +1,12 @@
 package com.hoffmann.joboffersapi.domain.loginandregister;
 
+import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.stereotype.Repository;
+
 import java.util.Optional;
 
-public interface UserRepository {
+@Repository
+public interface UserRepository extends MongoRepository<User, String> {
 
-    User save(User user);
-
-    Optional<User> findByLogin(String login);
-
-    boolean existsByLogin(String login);
+    Optional<User> findByUsername(String username);
 }
