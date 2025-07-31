@@ -25,6 +25,8 @@ Token uzyskasz przez endpoint /token po uprzedniej rejestracji
 - **Modularny monolit** – logiczny podział na moduły ułatwia rozwój i utrzymanie
 - **Heksagonalna architektura (Ports and Adapters)** – wyraźny podział na warstwy domeny, aplikacji i infrastruktury
 
+<img width="836" height="604" alt="image" src="https://github.com/user-attachments/assets/94ae5f3f-4b2c-4e3b-bbab-77f958c51103" />
+
 ---
 
 ## ✅ Funkcjonalności
