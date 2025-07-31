@@ -78,19 +78,39 @@ Dostępne przy autoryzacji użytkownika tokenem JWT:
 ```
 
 ### 🛠️ Technologie
-Java 17+
+Java 17
 
-Spring Boot
+Spring Boot 3 : Web, Test, Data MongoDB, Validation, Security + JWT
 
 MongoDB
 
-Spring Security + JWT
+Log4j2
 
 Spring Scheduler
 
 WireMock (mockowanie zewnętrznych API)
 
-MockMvc (testy kontrolerów)
+Maven
+
+Docker
+
+Lombok
+
+MockMvc
+
+Swagger
+
+Awaitility
+
+REST API
+
+Test containers
+
+Redis
+
+IntelliJ Ultimate
+
+
 
 AssertJ (asercje w testach)
 
