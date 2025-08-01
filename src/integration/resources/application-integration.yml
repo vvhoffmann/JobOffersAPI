@@ -1,5 +1,5 @@
 job-offers:
-  fetch-run-occurence: PT10S
+  fetch-run-occurrence: PT10S
 
 scheduling:
   enabled: false

@@ -4,6 +4,7 @@ import com.hoffmann.joboffersapi.BaseIntegrationTest;
 import com.hoffmann.joboffersapi.infrastructure.apivalidation.dto.ApiValidationErrorDto;
 import org.junit.jupiter.api.Test;
 import org.springframework.http.MediaType;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
 import org.springframework.test.web.servlet.MvcResult;
@@ -30,6 +31,7 @@ public class ApiValidationFailedIntegrationTest extends BaseIntegrationTest {
         registry.add("job-offers.offers-fetcher.http.client.config.uri", () -> WIRE_MOCK_HOST);
     }
 
+    @WithMockUser
     @Test
     public void should_return_400_bad_request_and_validation_message_when_save_offer_request_is_empty() throws Exception {
         //given
@@ -57,6 +59,7 @@ public class ApiValidationFailedIntegrationTest extends BaseIntegrationTest {
                         "offer url should not be empty");
     }
 
+    @WithMockUser
     @Test
     public void should_return_400_bad_request_and_validation_message_when_save_offer_request_is_null() throws Exception {
         //given

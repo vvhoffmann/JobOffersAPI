@@ -216,7 +216,8 @@ class UserWantToCheckJobOffersIntegrationTest extends BaseIntegrationTest implem
         final String offerIdAddedToDatabase = expectedOfferDto1.id();
         //when
         final ResultActions performGetOfferById1 = mockMvc.perform(get(url + "/" + offerIdAddedToDatabase)
-                .contentType(MediaType.APPLICATION_JSON_VALUE));
+                .contentType(MediaType.APPLICATION_JSON_VALUE)
+                .header("Authorization", "Bearer " + token));
         //then
         String singleOfferByIdJson = performGetOfferById1.andExpect(status().isOk())
                 .andReturn()
