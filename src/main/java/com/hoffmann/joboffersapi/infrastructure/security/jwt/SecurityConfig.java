@@ -1,6 +1,7 @@
 package com.hoffmann.joboffersapi.infrastructure.security.jwt;
 
 import com.hoffmann.joboffersapi.domain.loginandregister.LoginAndRegisterFacade;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -18,6 +19,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 @Configuration
 @EnableWebSecurity
+@EnableCaching
 class SecurityConfig {
 
     @Bean

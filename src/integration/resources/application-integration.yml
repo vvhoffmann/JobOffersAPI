@@ -1,5 +1,11 @@
 job-offers:
-  fetch-run-occurence: PT10S
+  fetch-run-occurrence: PT10S
 
 scheduling:
   enabled: false
+
+spring:
+  cache:
+    type: none
+    redis:
+      time-to-live: PT10S

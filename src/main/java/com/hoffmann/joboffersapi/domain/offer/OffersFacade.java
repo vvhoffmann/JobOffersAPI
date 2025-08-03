@@ -3,6 +3,8 @@ package com.hoffmann.joboffersapi.domain.offer;
 import com.hoffmann.joboffersapi.domain.offer.dto.OfferRequestDto;
 import com.hoffmann.joboffersapi.domain.offer.dto.OfferResponseDto;
 import lombok.AllArgsConstructor;
+import org.springframework.cache.annotation.Cacheable;
+
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -12,6 +14,7 @@ public class OffersFacade {
     private final OfferRepository offerRepository;
     private final OfferService offerService;
 
+    @Cacheable("jobOffers")
     public List<OfferResponseDto> findAllOffers() {
         return offerRepository.findAll().stream()
                 .map(OfferMapper::mapFromOfferToOfferResponseDto)

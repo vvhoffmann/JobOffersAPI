@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @AllArgsConstructor
 @RestController
-class RegisterRestController {
+public class RegisterRestController {
 
     private final LoginAndRegisterFacade loginAndRegisterFacade;
     private final PasswordEncoder bCryptPasswordEncoder;
